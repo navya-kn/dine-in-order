@@ -1,4 +1,9 @@
 package com.example.dio.service;
 
-public class UserService {
+import com.example.dio.model.User;
+import org.springframework.stereotype.Service;
+
+
+public interface UserService {
+   public  User registerUser(User user);
 }
