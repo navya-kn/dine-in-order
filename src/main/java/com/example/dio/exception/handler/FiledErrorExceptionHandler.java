@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.dio.util.FieldErrorResponse.createFiledError;
+//import static com.example.dio.util.FieldErrorResponse.createFiledError;
 
 @RestControllerAdvice
 public class FiledErrorExceptionHandler extends ResponseEntityExceptionHandler {
