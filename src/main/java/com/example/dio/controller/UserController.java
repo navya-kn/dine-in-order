@@ -16,6 +16,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.*;
+import org.aspectj.bridge.IMessage;
+import org.aspectj.bridge.IMessageContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("${app.base-url}")
 @Tag(name="User Controller",description = "Collection API Endpoint dealing user data.")
 public class UserController {
 
@@ -42,7 +45,7 @@ public class UserController {
     public ResponseEntity<ResponseStructure<UserResponse>> registerUser(@RequestBody @Valid RegistrationRequest registrationRequest) {
         UserResponse response = userService.registerUser(registrationRequest);
 
-        return ResponseBuilder.success(HttpStatus.CREATED, "User Created", response);
+        return ResponseBuilder.created("user created", response);
     }
 
 
